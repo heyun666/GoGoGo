@@ -2,9 +2,19 @@ name: Build Release
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - '*'
+    inputs:
+      username:
+        description: 'GoGoGo_apk'
+        required: true
+        default: 'GoGoGo_apk'
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
 
 permissions:
   contents: write
